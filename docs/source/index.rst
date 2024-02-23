@@ -1,13 +1,12 @@
-.. GENERIC documentation master file, created by
+.. WOLF documentation master file, created by
    sphinx-quickstart on Mon Nov 6 15:19:08 2023.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to the GENERIC documentation!
+Welcome to the WOLF documentation!
 ==================================
 
-**GENERIC** (Some Neat Acronym) is a Python library aimed at ingesting, segmenting, and processing radio signals. TADA enables AI-driven analysis of spurious
-spectrotemporal signals.
+**WOLF** (Waveform Operation and Layering Framework) is a Python library aimed at ingesting, processing, and modifying sound files.
 
 .. warning::
 
@@ -25,7 +24,7 @@ Installation
 .. code::
 
    python -m pip install --upgrade pip setuptools wheel numpy
-   python -m pip install tada
+   python -m pip install wolf
 
 
 

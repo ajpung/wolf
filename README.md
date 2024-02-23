@@ -1,10 +1,8 @@
-# TADA
-A tool for antenna data analysis.
+# WOLF
+A **W**aveform **O**peration and **L**ayering **F**ramework
 
 # Introduction
-Working in conjunction with an antenna, SDRs are used to monitor and capture radio frequency (RF) signals captured by the antenna and turn them into a more user-friendly and analyzable data source. The script relies on miniconda3.
-
-Notes and commands used to contribute are contained in the documentation.
+The goal of the WOLF toolkit is to build a means for ingesting, changing, and exploring sound alteration. Notes and commands used to contribute are contained in the documentation.
 
 # Before running
 Ensure your Python path is set to the local repository's source directory using:

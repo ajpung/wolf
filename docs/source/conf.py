@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = "GENERIC"
+project = "WOLF"
 copyright = "YYYY, Aaron Pung"
 author = "Aaron Pung"
 
@@ -43,7 +43,7 @@ exclude_patterns = []
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
-html_logo = "generic_logo.png"
+html_logo = "wolf_logo.png"
 html_theme = "furo"
 html_theme_options = {
     "logo_only": False,

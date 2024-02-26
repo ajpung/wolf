@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to the WOLF documentation!
-==================================
+Welcome to WOLF
+===============
 
 **WOLF** (Waveform Operation and Layering Framework) is a Python library aimed at ingesting, processing, and modifying sound files.
 

@@ -25,8 +25,8 @@ To work on this project, you need to have git 2.17+ and Python 3.10+.
 - Clone this project using `git`:
 .. code-block:: 
 
-    gh repo clone ajpung/generic_template
-    cd generic_template
+    gh repo clone ajpung/wolf
+    cd wolf
 
 Commands
 --------

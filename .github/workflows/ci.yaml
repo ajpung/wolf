@@ -1,4 +1,4 @@
-name: GENERIC CI
+name: WOLF CI
 
 on:
   pull_request:
@@ -77,7 +77,7 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          pip install --upgrade pip setuptools wheel numpy librosa
+          pip install --upgrade pip setuptools wheel numpy librosa pygame tkinter
           pip install .[dev]
 
       - name: Run Tests

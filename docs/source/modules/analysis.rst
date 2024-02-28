@@ -1,7 +1,7 @@
 Analysis
 ========
 
-.. automodule:: generic.analysis
+.. automodule:: wolf.analysis
    :members:
    :undoc-members:
    :show-inheritance:
@@ -10,7 +10,7 @@ Analysis
 Basics
 ------
 
-.. automodule:: generic.analysis.basics
+.. automodule:: wolf.analysis.basics
    :members:
    :undoc-members:
    :show-inheritance:

@@ -1,69 +1,66 @@
-import numpy as np
-import librosa as lb
+import pygame
 
-from PyQt5.QtCore import Qt
-from PyQt5.QtGui import QPalette
-from PyQt5.QtWidgets import *
-
-# Python program to create
-# a file explorer in Tkinter
-
-# import all components
-# from the tkinter library
-from tkinter import *
-
-# import filedialog module
+import tkinter as tk
 from tkinter import filedialog
 
 
-# Function for opening the
-# file explorer window
-def browseFiles():
-    filename = filedialog.askopenfilename(
-        initialdir="/",
-        title="Select a File",
-        filetypes=(("Text files", "*.txt*"), ("all files", "*.*")),
-    )
+class AudioPlayerApp:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Audio Player")
 
-    # Change label contents
-    label_file_explorer.configure(text="File Opened: " + filename)
+        # Create buttons for opening, playing, pausing, and resuming audio files
+        self.open_button = tk.Button(root, text="Open Audio File", command=self.open_audio)
+        self.play_button = tk.Button(root, text="Play", state=tk.DISABLED, command=self.play_audio)
+        self.pause_button = tk.Button(root, text="Pause", state=tk.DISABLED, command=self.pause_audio)
+        self.resume_button = tk.Button(root, text="Resume", state=tk.DISABLED, command=self.resume_audio)
 
+        self.open_button.pack(pady=10)
+        self.play_button.pack()
+        self.pause_button.pack()
+        self.resume_button.pack()
 
-# Create the root window
-window = Tk()
+        # Initialize pygame
+        pygame.mixer.init()
 
-# Set window title
-window.title("File Explorer")
+        # Register a callback to stop audio when the window is closed
+        root.protocol("WM_DELETE_WINDOW", self.on_closing)
 
-# Set window size
-window.geometry("500x500")
+        # Initialize playback state
+        self.paused = False
 
-# Set window background color
-window.config(background="white")
+    def open_audio(self):
+        file_path = filedialog.askopenfilename(filetypes=[("Audio Files", "*.mp3 *.wav")])
+        if file_path:
+            self.audio_file = file_path
+            self.play_button.config(state=tk.NORMAL)
 
-# Create a File Explorer label
-label_file_explorer = Label(
-    window, text="File Explorer using Tkinter", width=100, height=4, fg="blue"
-)
+    def play_audio(self):
+        pygame.mixer.music.load(self.audio_file)
+        pygame.mixer.music.play()
+        self.play_button.config(state=tk.DISABLED)
+        self.pause_button.config(state=tk.NORMAL)
 
+    def pause_audio(self):
+        pygame.mixer.music.pause()
+        self.pause_button.config(state=tk.DISABLED)
+        self.resume_button.config(state=tk.NORMAL)
+        self.paused = True
 
-button_explore = Button(window, text="Browse Files", command=browseFiles)
+    def resume_audio(self):
+        pygame.mixer.music.unpause()
+        self.resume_button.config(state=tk.DISABLED)
+        self.pause_button.config(state=tk.NORMAL)
+        self.paused = False
 
-button_exit = Button(window, text="Exit", command=exit)
+    def on_closing(self):
+        # Check if audio is currently playing
+        if pygame.mixer.music.get_busy():
+            # Stop audio playback before closing the application
+            pygame.mixer.music.stop()
+        self.root.destroy()
 
-# Grid method is chosen for placing
-# the widgets at respective positions
-# in a table like structure by
-# specifying rows and columns
-label_file_explorer.grid(column=1, row=1)
-
-button_explore.grid(column=1, row=2)
-
-button_exit.grid(column=1, row=3)
-
-# Let the window wait for any events
-window.mainloop()
-
-## Load mp3 file
-# y, sr = lb.load("~//..//samples//piano_oneshot.mp3")
-# print(lb.get_duration(y=y, sr=sr))
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = AudioPlayerApp(root)
+    root.mainloop()

@@ -1,4 +1,4 @@
-name: Release Generic Documentation
+name: Release Wolf Documentation
 
 on:
   push:

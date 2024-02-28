@@ -1,28 +1,28 @@
 Internals
 =========
 
-GENERIC's internals contain files necessary to establish the RF analysis library.
+WOLF's internals contain files necessary to establish the RF analysis library.
 
 
 Repository layout
 -----------------
 The repository layout is standard for a service-driven plugin.
 
-- ``README.md`` - Documentation for the GENERIC GitHub landing page.
+- ``README.md`` - Documentation for the WOLF GitHub landing page.
 
 - ``package.json``
 
 - ``pyproject.toml`` - Project characterization / development data
 
-- ``build/`` - Mac OS build files for GENERIC
+- ``build/`` - Mac OS build files for WOLF
 
 - ``docs/`` - Sources for building documentation
 
-- ``examples/`` - Sources to help demonstrate GENERIC's functionality
+- ``examples/`` - Sources to help demonstrate WOLF's functionality
 
-- ``src/`` - The source code for GENERIC
+- ``src/`` - The source code for WOLF
 
-  - ``generic/`` - Where the TADA code is housed.
+  - ``wolf/`` - Where the WOLF code is housed.
 
 - ``tests/`` - Contains unit tests for each module
 

@@ -1,7 +1,7 @@
 Utils
 =====
 
-.. automodule:: generic.utils
+.. automodule:: wolf.utils
    :members:
    :undoc-members:
    :show-inheritance:
@@ -9,7 +9,7 @@ Utils
 Conversions
 -----------
 
-.. automodule:: generic.utils.conversions
+.. automodule:: wolf.utils.conversions
    :members:
    :undoc-members:
    :show-inheritance:
@@ -18,7 +18,7 @@ Conversions
 Coordinates
 -----------
 
-.. automodule:: generic.utils.coordinates
+.. automodule:: wolf.utils.coordinates
    :members:
    :undoc-members:
    :show-inheritance:

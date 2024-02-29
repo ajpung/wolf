@@ -53,7 +53,7 @@ class AudioPlayerApp:
             self.audio_file = file_path
             self.play_button.config(state=tk.NORMAL)
             self.show_button.config(state=tk.NORMAL)
-    
+
     def play_audio(self):
         pygame.mixer.music.load(self.audio_file)
         pygame.mixer.music.play()
@@ -83,6 +83,7 @@ class AudioPlayerApp:
             # Stop audio playback before closing the application
             pygame.mixer.music.stop()
         self.root.destroy()
+
 
 if __name__ == "__main__":
     root = tk.Tk()

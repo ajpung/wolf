@@ -1,6 +1,10 @@
+import wave
 import pygame
-
+import numpy as np
 import tkinter as tk
+import matplotlib.pyplot as plt
+
+from pydub import AudioSegment
 from tkinter import filedialog
 
 
@@ -22,11 +26,15 @@ class AudioPlayerApp:
         self.resume_button = tk.Button(
             root, text="Resume", state=tk.DISABLED, command=self.resume_audio
         )
+        self.show_button = tk.Button(
+            root, text="Show wave", state=tk.DISABLED, command=self.show_audio
+        )
 
         self.open_button.pack(pady=10)
         self.play_button.pack()
         self.pause_button.pack()
         self.resume_button.pack()
+        self.show_button.pack()
 
         # Initialize pygame
         pygame.mixer.init()
@@ -44,7 +52,8 @@ class AudioPlayerApp:
         if file_path:
             self.audio_file = file_path
             self.play_button.config(state=tk.NORMAL)
-
+            self.show_button.config(state=tk.NORMAL)
+    
     def play_audio(self):
         pygame.mixer.music.load(self.audio_file)
         pygame.mixer.music.play()
@@ -63,13 +72,17 @@ class AudioPlayerApp:
         self.pause_button.config(state=tk.NORMAL)
         self.paused = False
 
+    def show_audio(self):
+        song = AudioSegment.from_mp3(self.audio_file)
+        info = song.frame_rate
+        print(info)
+
     def on_closing(self):
         # Check if audio is currently playing
         if pygame.mixer.music.get_busy():
             # Stop audio playback before closing the application
             pygame.mixer.music.stop()
         self.root.destroy()
-
 
 if __name__ == "__main__":
     root = tk.Tk()

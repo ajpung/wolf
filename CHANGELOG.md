@@ -2,6 +2,23 @@
 
 
 
+## 0.0.3 (2024-02-29)
+
+### Chore
+
+* chore: minor file format changes via black ([`a7ecd61`](https://github.com/ajpung/wolf/commit/a7ecd6186fee85c401cdf08634824a98e8544e29))
+
+### Performance
+
+* perf: added another button, now wolf is capable of processing song data via pydub ([`09f368e`](https://github.com/ajpung/wolf/commit/09f368ee02671dc688ba02c16a2a08528f77180a))
+
+### Unknown
+
+* Merge pull request #6 from ajpung/samp-rate
+
+perf: added another button, now wolf is capable of processing song da… ([`d6400f4`](https://github.com/ajpung/wolf/commit/d6400f46184828490ae2d3f57d9acca260660782))
+
+
 ## 0.0.2 (2024-02-28)
 
 ### Chore

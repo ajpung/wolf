@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 
 from pydub import AudioSegment
 from tkinter import filedialog
+from wolf.analysis import basics
 
 
 class AudioPlayerApp:
@@ -73,8 +74,7 @@ class AudioPlayerApp:
         self.paused = False
 
     def show_audio(self):
-        song = AudioSegment.from_mp3(self.audio_file)
-        info = song.frame_rate
+        info = basics.show_frame_rate(self.audio_file)
         print(info)
 
     def on_closing(self):

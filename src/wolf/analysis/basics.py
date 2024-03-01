@@ -1,14 +1,11 @@
-from rtlsdr import RtlSdr
+import numpy as np
+from pydub import AudioSegment
 
-sdr = RtlSdr()
 
-# configure device
-sdr.sample_rate = 2.048e6  # Hz
-sdr.center_freq = 70e6  # Hz
-sdr.freq_correction = 60  # PPM
-sdr.gain = "auto"
-
-samples = sdr.read_samples(512)
+def show_frame_rate(audio_file: str) -> np.int32:
+    song = AudioSegment.from_mp3(audio_file)
+    info = np.int32(song.frame_rate)
+    return info
 
 
 '''

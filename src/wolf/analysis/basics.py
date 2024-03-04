@@ -3,7 +3,13 @@ from pydub import AudioSegment
 
 
 def show_frame_rate(audio_file: str) -> np.int32:
-    song = AudioSegment.from_mp3(audio_file)
+    ext = audio_file.split(".")[1]
+    if ext == "mp3":
+        song = AudioSegment.from_mp3(audio_file)
+    elif ext == "wav":
+        song = AudioSegment.from_wav(audio_file)
+    else:
+        song = AudioSegment.from_file(audio_file)
     info = np.int32(song.frame_rate)
     return info
 

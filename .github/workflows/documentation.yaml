@@ -22,6 +22,7 @@ jobs:
         run: |
           pip install --upgrade pip setuptools wheel numpy 
           pip install ".[docs]"
+          pip install "black[jupyter]"
       - name: Sphinx build
         run: |
           sphinx-build docs/source docs/build

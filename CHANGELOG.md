@@ -2,6 +2,37 @@
 
 
 
+## 0.0.4 (2024-03-05)
+
+### Chore
+
+* chore: adding features to Jupyter notebook before building the app again, lots of stuff to try in this one! ([`920f75a`](https://github.com/ajpung/wolf/commit/920f75a2020e91ae2c4b3944c2fd73d2ee5c4aca))
+
+* chore: separating out analytical functions from original io script ([`4e1792f`](https://github.com/ajpung/wolf/commit/4e1792fe74ef82af2b547f31b028d46d0a005d22))
+
+### Documentation
+
+* docs: added example Jupyter notebook showing functions and improved import functions ([`b487b46`](https://github.com/ajpung/wolf/commit/b487b46a0c4826944a964272fed2415f79c91e1f))
+
+### Fix
+
+* fix: removing output from jupyter notebook ([`b78f0d6`](https://github.com/ajpung/wolf/commit/b78f0d669bbde539fad0aef9ebef31b6798856dc))
+
+### Unknown
+
+* Merge pull request #14 from ajpung/future-plans
+
+Future plans ([`9def9dd`](https://github.com/ajpung/wolf/commit/9def9ddf75360f549363314a12ba56ede8ccbf05))
+
+* Merge pull request #12 from ajpung/examp-file
+
+docs: added example Jupyter notebook showing functions and improved i… ([`95932d9`](https://github.com/ajpung/wolf/commit/95932d960290e7a9693abf5b23454264b63a967a))
+
+* Merge pull request #11 from ajpung/sep-func
+
+chore: separating out analytical functions from original io script ([`861488e`](https://github.com/ajpung/wolf/commit/861488eed26b41dd93aab7e253c7007108c384bc))
+
+
 ## 0.0.3 (2024-02-29)
 
 ### Chore

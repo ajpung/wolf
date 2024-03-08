@@ -6,7 +6,9 @@ import matplotlib.pyplot as plt
 
 from pydub import AudioSegment
 from tkinter import filedialog
+from pydub.playback import play
 from wolf.analysis import basics
+from wolf.utils import track_mechanics
 
 
 class AudioPlayerApp:
@@ -21,21 +23,21 @@ class AudioPlayerApp:
         self.play_button = tk.Button(
             root, text="Play", state=tk.DISABLED, command=self.play_audio
         )
-        self.pause_button = tk.Button(
-            root, text="Pause", state=tk.DISABLED, command=self.pause_audio
-        )
-        self.resume_button = tk.Button(
-            root, text="Resume", state=tk.DISABLED, command=self.resume_audio
-        )
-        self.show_button = tk.Button(
-            root, text="Show wave", state=tk.DISABLED, command=self.show_audio
-        )
+        # self.pause_button = tk.Button(
+        #    root, text="Pause", state=tk.DISABLED, command=self.pause_audio
+        # )
+        # self.resume_button = tk.Button(
+        #    root, text="Resume", state=tk.DISABLED, command=self.resume_audio
+        # )
+        # self.show_button = tk.Button(
+        #    root, text="Show wave", state=tk.DISABLED, command=self.show_audio
+        # )
 
         self.open_button.pack(pady=10)
         self.play_button.pack()
-        self.pause_button.pack()
-        self.resume_button.pack()
-        self.show_button.pack()
+        # self.pause_button.pack()
+        # self.resume_button.pack()
+        # self.show_button.pack()
 
         # Initialize pygame
         pygame.mixer.init()
@@ -51,31 +53,30 @@ class AudioPlayerApp:
             filetypes=[("Audio Files", "*.mp3 *.wav")]
         )
         if file_path:
-            self.audio_file = file_path
+            self.audio_file = track_mechanics.load_track(file_path)
             self.play_button.config(state=tk.NORMAL)
-            self.show_button.config(state=tk.NORMAL)
 
     def play_audio(self):
-        pygame.mixer.music.load(self.audio_file)
-        pygame.mixer.music.play()
-        self.play_button.config(state=tk.DISABLED)
-        self.pause_button.config(state=tk.NORMAL)
+        play(self.audio_file)
 
-    def pause_audio(self):
-        pygame.mixer.music.pause()
-        self.pause_button.config(state=tk.DISABLED)
-        self.resume_button.config(state=tk.NORMAL)
-        self.paused = True
+    #    self.play_button.config(state=tk.DISABLED)
+    #    self.pause_button.config(state=tk.NORMAL)
 
-    def resume_audio(self):
-        pygame.mixer.music.unpause()
-        self.resume_button.config(state=tk.DISABLED)
-        self.pause_button.config(state=tk.NORMAL)
-        self.paused = False
+    # def pause_audio(self):
+    #    pygame.mixer.music.pause()
+    #    self.pause_button.config(state=tk.DISABLED)
+    #    self.resume_button.config(state=tk.NORMAL)
+    #    self.paused = True
 
-    def show_audio(self):
-        info = basics.show_frame_rate(self.audio_file)
-        print(info)
+    # def resume_audio(self):
+    #    pygame.mixer.music.unpause()
+    #    self.resume_button.config(state=tk.DISABLED)
+    #    self.pause_button.config(state=tk.NORMAL)
+    #    self.paused = False
+
+    # def show_audio(self):
+    #    info = basics.show_frame_rate(self.audio_file)
+    #    print(info)
 
     def on_closing(self):
         # Check if audio is currently playing

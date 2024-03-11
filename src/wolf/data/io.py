@@ -8,7 +8,7 @@ from pydub import AudioSegment
 from tkinter import filedialog
 from pydub.playback import play
 from wolf.analysis import basics
-from wolf.utils import track_mechanics
+from wolf.utils import mechanics
 
 
 class AudioPlayerApp:
@@ -53,10 +53,12 @@ class AudioPlayerApp:
             filetypes=[("Audio Files", "*.mp3 *.wav")]
         )
         if file_path:
-            self.audio_file = track_mechanics.load_track(file_path)
+            self.audio_file = mechanics.load_track(file_path)
             self.play_button.config(state=tk.NORMAL)
 
     def play_audio(self):
+        d, r, w = mechanics.characterize_track(self.audio_file)
+        print("\n", d, r, w)
         play(self.audio_file)
 
     #    self.play_button.config(state=tk.DISABLED)

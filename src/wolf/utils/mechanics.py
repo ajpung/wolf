@@ -61,3 +61,26 @@ def arrays_to_track(
     newtrack = audiosegment.from_numpy_array(newtrack, framerate=framerate)
 
     return newtrack
+
+
+def characterize_track(audio_file: audiosegment) -> Tuple:
+    """
+    Characterizes an audio track.
+
+    Args:
+        audio_file: path to the audio file
+
+    Returns:
+        track: The equivalent audiosegment
+    """
+
+    # Extract duration
+    duration = audio_file.duration_seconds
+
+    # Extract sample rate
+    samprate = audio_file.frame_rate
+
+    # Extract frame width
+    sampwdth = audio_file.frame_width
+
+    return duration, samprate, sampwdth

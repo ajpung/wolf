@@ -73,7 +73,6 @@ def characterize_track(audio_file: audiosegment) -> Tuple:
     Returns:
         track: The equivalent audiosegment
     """
-
     # Extract duration
     duration = audio_file.duration_seconds
 
@@ -83,4 +82,9 @@ def characterize_track(audio_file: audiosegment) -> Tuple:
     # Extract frame width
     sampwdth = audio_file.frame_width
 
-    return duration, samprate, sampwdth
+    # Identify total samples and time axis
+    Lchan, Rchan = split_track(audio_file)
+    n_samples = len(Lchan)
+    time_axis = np.linspace(0, duration, num=n_samples)
+
+    return duration, samprate, sampwdth, time_axis

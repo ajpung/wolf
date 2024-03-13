@@ -5,6 +5,38 @@ from pydub.playback import play
 from typing import Tuple
 
 
+def low_pass(track: audiosegment, samprate: int) -> audiosegment:
+    """
+    Ingests an AudioSegment and applies a low-pass filter
+
+    Args:
+        track: An existing AudioSegment object
+        samprate: Sample rate of the initial track
+
+    Returns:
+        filt_track: The original audio with applied filter
+    """
+
+    filt_track = track.low_pass_filter(samprate)
+    return filt_track
+
+
+def high_pass(track: audiosegment, samprate: int) -> audiosegment:
+    """
+    Ingests an AudioSegment and applies a low-pass filter
+
+    Args:
+        track: An existing AudioSegment object
+        samprate: Sample rate of the initial track
+
+    Returns:
+        filt_track: The original audio with applied filter
+    """
+
+    filt_track = track.high_pass_filter(samprate)
+    return filt_track
+
+
 def load_track(audio_file: str) -> audiosegment:
     """
     Loads an .mp3 or .wav file via pydub

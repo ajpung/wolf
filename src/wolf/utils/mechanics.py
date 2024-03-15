@@ -1,8 +1,8 @@
-import numpy as np
-import audiosegment
-
-from pydub.playback import play
 from typing import Tuple
+
+import audiosegment
+import numpy as np
+from pydub.playback import play
 
 
 def low_pass(track: audiosegment, samprate: int) -> audiosegment:

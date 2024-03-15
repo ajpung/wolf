@@ -1,11 +1,11 @@
-import wave
-import pygame
-import numpy as np
 import tkinter as tk
-import matplotlib.pyplot as plt
-
-from pydub import AudioSegment
+import wave
 from tkinter import filedialog
+
+import matplotlib.pyplot as plt
+import numpy as np
+import pygame
+from pydub import AudioSegment
 from pydub.playback import play
 from wolf.analysis import basics
 from wolf.utils import mechanics
@@ -23,6 +23,13 @@ class AudioPlayerApp:
         self.play_button = tk.Button(
             root, text="Play", state=tk.DISABLED, command=self.play_audio
         )
+        self.highpass_button = tk.Button(
+            root,
+            text="High-pass filter",
+            state=tk.DISABLED,
+            command=self.apply_highpass,
+        )
+
         # self.pause_button = tk.Button(
         #    root, text="Pause", state=tk.DISABLED, command=self.pause_audio
         # )
@@ -34,7 +41,8 @@ class AudioPlayerApp:
         # )
 
         self.open_button.pack(pady=10)
-        self.play_button.pack()
+        self.play_button.pack(pady=10)
+        self.highpass_button.pack(pady=10)
         # self.pause_button.pack()
         # self.resume_button.pack()
         # self.show_button.pack()
@@ -55,6 +63,12 @@ class AudioPlayerApp:
         if file_path:
             self.audio_file = mechanics.load_track(file_path)
             self.play_button.config(state=tk.NORMAL)
+
+    def apply_highpass(self):
+        d, r, w = mechanics.characterize_track(self.audio_file)
+        hp_track = mechanics.high_pass(self.audio_file, r)
+        self.play_button.config(state=tk.NORMAL)
+        self.audio_file = hp_track
 
     def play_audio(self):
         d, r, w = mechanics.characterize_track(self.audio_file)

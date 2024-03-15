@@ -11,8 +11,11 @@ authors = [
 description = "Waveform Operation and Layering Framework"
 readme = "README.md"
 dependencies = [
+    "pydub",
     "numpy",
     "pandas",
+    "pygame",
+    "audiosegment",
     "plotly==5.18.0",
     "pydantic==2.4.2",
     "pydantic_core==2.10.1",

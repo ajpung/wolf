@@ -1,13 +1,8 @@
 import tkinter as tk
-import wave
 from tkinter import filedialog
-
-import matplotlib.pyplot as plt
-import numpy as np
+import audiosegment
 import pygame
-from pydub import AudioSegment
-from pydub.playback import play
-from wolf.analysis import basics
+import pydub
 from wolf.utils import mechanics
 
 
@@ -71,9 +66,9 @@ class AudioPlayerApp:
         self.audio_file = hp_track
 
     def play_audio(self):
-        d, r, w = mechanics.characterize_track(self.audio_file)
-        print("\n", d, r, w)
-        play(self.audio_file)
+        d, r, w, t = mechanics.characterize_track(self.audio_file)
+        print(type(self.audio_file))
+        pydub.playback.play(self.audio_file)
 
     #    self.play_button.config(state=tk.DISABLED)
     #    self.pause_button.config(state=tk.NORMAL)
